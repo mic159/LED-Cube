@@ -7,13 +7,12 @@ public:
 	static const int width = 10;
 	static const int height = 10;
 	static const int depth = 4;
-	static const int num_registers = width * height / 8 + 1;
+	static const int num_registers = ((width * height) + depth) / 8 + 1;
 	
 	Display();
 	
 	inline void pxOn(int num, int layer)
 	{
-		//num += 4;
 		data[layer][num / 8] |= 1 << (num % 8);
 	}
 
